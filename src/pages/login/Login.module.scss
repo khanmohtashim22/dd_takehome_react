@@ -1,0 +1,27 @@
+@import "../../css/constants.scss";
+
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.username {
+  margin-bottom: 16px;
+}
+
+.submit {
+  background: $pink;
+  color: $white;
+  height: 48px;
+  border: 1px solid $pink;
+  border-radius: 5px;
+  font-size: medium;
+}
