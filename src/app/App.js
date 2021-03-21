@@ -6,15 +6,15 @@ import {
 } from "react-router-dom"
 
 import Routes from '../lib/Routes'
-import UsernameContext from './support/UsernameContext'
+import UserContext from './support/UserContext'
 
 const App = () => {
   const [user, setUser] = useState("")
-  const usernameContext = { user, setUser }
+  const userContext = { user, setUser }
   
   return (
     <Router>
-      <UsernameContext.Provider value={usernameContext}>
+      <UserContext.Provider value={userContext}>
         <Switch>
           {
             Routes.map((route, index) => {
@@ -23,7 +23,7 @@ const App = () => {
             })
           }
         </Switch>
-      </UsernameContext.Provider>
+      </UserContext.Provider>
     </Router>
   )}
 
