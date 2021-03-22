@@ -2,11 +2,11 @@ import React from 'react'
 
 import UseString from '../use-string/UseStrings'
 
-const Text = ({ el = 'div', id }) => {
+const Text = ({ el = 'div', id, className }) => {
   const Component = el
   const getString = UseString()
   return (
-    <Component>
+    <Component className={className}>
       {getString(id)}
     </Component>
   )

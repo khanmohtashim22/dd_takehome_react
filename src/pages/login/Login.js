@@ -1,24 +1,41 @@
 import React, { useContext, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 import useString from '../../components/use-string/UseStrings'
 import Input from '../../components/input/Input'
 import UserContext from '../../app/support/UserContext'
+import Text from '../../components/text/Text'
 
 import styles from './Login.module.scss'
 
 const Login = () => {
   const [username, setUsername] = useState("")
+  const [error, setError] = useState(false)
   const getString = useString()
   const { setUser } = useContext(UserContext)
-  const handleChange = e => setUsername(e.target.value)
+  const history = useHistory()
+
+  const handleChange = e => {
+    if(error) {
+      setError(false)
+    }
+    setUsername(e.target.value)
+  }
+
   const handleSubmit = e => {
     e.preventDefault()
-    setUser(username)
+    if (username.length <= 0) {
+      setError(true)
+    } else {
+      setUser(username)
+      history.push('/chat')
+    }
   }
   
   return (
     <form onSubmit={handleSubmit} className={styles.loginContainer}>
       <div className={styles.login}>
+        {error && <Text id="username.error" el="h1" className={styles.error} />}
         <Input 
           className={styles.username} 
           id="username" 
