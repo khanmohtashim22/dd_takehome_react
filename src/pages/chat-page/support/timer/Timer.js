@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-import Text from '../text/Text'
-import { getClasses } from '../../utils/style-utils/style-utils'
+import Text from '../../../../components/text/Text'
+import { getClasses } from '../../../../utils/style-utils/style-utils'
 
 import styles from './Timer.module.scss'
 
