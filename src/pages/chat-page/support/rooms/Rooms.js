@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 import UserContext from '../../../../app/support/UserContext'
 import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
-import Timer from '../../../../components/timer/Timer'
+import Timer from '../timer/Timer'
 import Room from '../room/Room'
 import { isRoomSelected } from '../utils/chat-utils'
 

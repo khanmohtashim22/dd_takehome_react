@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom'
 
 import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
 import UserContext from '../../../../app/support/UserContext'
-// import { getClasses } from '../../../../utils/style-utils/style-utils'
 
 import styles from './RoomName.module.scss'
 
