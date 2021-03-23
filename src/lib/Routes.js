@@ -1,11 +1,11 @@
-import Login from '../pages/login/Login'
-import Chat from '../pages/chat/Chat'
-import Error from '../pages/error/Error'
+import LoginPage from '../pages/login-page/LoginPage'
+import ChatPage from '../pages/chat-page/ChatPage'
+import ErrorPage from '../pages/error-page/ErrorPage'
 
 const Routes = [
-  { path: '/', component: Login },
-  { path: '/chat', component: Chat },
-  { path: '/error', component: Error }
+  { path: '/', component: LoginPage },
+  { path: '/chat', component: ChatPage },
+  { path: '/error', component: ErrorPage }
 ]
 
 export default Routes

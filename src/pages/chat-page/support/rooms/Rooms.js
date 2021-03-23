@@ -3,33 +3,38 @@ import axios from 'axios'
 import { useHistory } from 'react-router-dom'
 
 import UserContext from '../../../../app/support/UserContext'
+import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
 import Timer from '../../../../components/timer/Timer'
 import Room from '../room/Room'
-import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
+import { isRoomSelected } from '../utils/chat-utils'
 
 import styles from './Rooms.module.scss'
 
 const Rooms = () => {
   const { user } = useContext(UserContext)
-  const { setSelectedRoom } = useContext(SelectedRoomContext)
+  const { setSelectedRoom, selectedRoom } = useContext(SelectedRoomContext)
   const [rooms, setRooms] = useState([])
   const history = useHistory()
+  const hasRooms = rooms && rooms.length > 0
 
   useEffect(() => {
     const getRooms = async () => {
       try {
-        const { data: rooms } = await axios('http://localhost:8080/api/rooms')
+        const { data: rooms } = await axios.get('http://localhost:8080/api/rooms')
         setRooms(rooms)
-        setSelectedRoom(rooms[0].id)
       } catch (error) {
-        console.log('error', error)
         history.push('/error')
       }
     }
-
     getRooms()
   }, [history, setSelectedRoom])
 
+  useEffect(() => {
+    if (hasRooms && !isRoomSelected(selectedRoom)) {
+      setSelectedRoom(rooms[0].id)
+    }
+  }, [hasRooms, rooms, selectedRoom, setSelectedRoom])
+  
   return (
     <div className={styles.container}>
       
@@ -39,7 +44,7 @@ const Rooms = () => {
       </div>
       <ul className={styles.rooms}>
         {
-          rooms && rooms.length > 0 && rooms.map(room => <Room key={room.id} room={room} />)
+          hasRooms && rooms.map(room => <Room key={room.id} room={room} />)
         }
       </ul>
     </div>

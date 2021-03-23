@@ -1,0 +1,1 @@
+export const isRoomSelected = selectedRoom => selectedRoom !== null

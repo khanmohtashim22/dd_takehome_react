@@ -6,9 +6,9 @@ import Input from '../../components/input/Input'
 import UserContext from '../../app/support/UserContext'
 import Text from '../../components/text/Text'
 
-import styles from './Login.module.scss'
+import styles from './LoginPage.module.scss'
 
-const Login = () => {
+const LoginPage = () => {
   const [username, setUsername] = useState("")
   const [error, setError] = useState(false)
   const getString = useString()
@@ -50,4 +50,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginPage

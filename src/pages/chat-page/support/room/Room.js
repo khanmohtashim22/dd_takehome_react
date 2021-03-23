@@ -1,18 +1,17 @@
 import React, { useContext } from 'react'
 
-import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
 import { getClasses } from '../../../../utils/style-utils/style-utils'
+import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
 
 import styles from './Room.module.scss'
 
 const Room = ({ room }) => {
   const { name, id } = room
-  const { selectedRoom, setSelectedRoom } = useContext(SelectedRoomContext)
-  const selected = id === selectedRoom
+  const { setSelectedRoom, selectedRoom } = useContext(SelectedRoomContext)
+  const selected = selectedRoom === id
   const handleClick = () => {
     setSelectedRoom(id)
   }
-
   return (
     <li>
       <button onClick={handleClick} className={getClasses({ styles, classes: ['room', selected && 'selected'] })}>
