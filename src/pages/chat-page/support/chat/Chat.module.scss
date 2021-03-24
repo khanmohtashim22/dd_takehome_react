@@ -1,4 +1,16 @@
 .chat {
-  position: relative;            
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
   margin-left: 250px;
+  height: 100vh;
+}
+
+.roomName {
+  flex: 0 0 auto;
+}
+
+.messages {
+  flex: 1 1 auto;
+  overflow-y: auto;
 }

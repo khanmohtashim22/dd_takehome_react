@@ -3,7 +3,8 @@ import React, { useContext } from 'react'
 import RoomName from '../room-name/RoomName'
 import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
 import { isRoomSelected } from '../utils/chat-utils'
-import RoomMessages from '../room-messages/RoomMessages'
+import AddMessage from '../add-message/AddMessage'
+import Messages from '../messages/Messages'
 
 import styles from './Chat.module.scss'
 
@@ -11,8 +12,15 @@ const Chat = () => {
   const { selectedRoom } = useContext(SelectedRoomContext)
   return isRoomSelected(selectedRoom) ? (
     <div className={styles.chat}>
-      <RoomName />
-      <RoomMessages />
+      <div className={styles.roomName}>
+        <RoomName />
+      </div>
+      <div className={styles.messages}>
+        <Messages />
+      </div>
+      <div className={styles.addMessage}>
+        <AddMessage />
+      </div>
     </div>
   ) : null
 }
