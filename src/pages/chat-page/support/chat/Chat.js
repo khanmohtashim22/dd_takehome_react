@@ -1,4 +1,6 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 import RoomName from '../room-name/RoomName'
 import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
@@ -10,16 +12,35 @@ import styles from './Chat.module.scss'
 
 const Chat = () => {
   const { selectedRoom } = useContext(SelectedRoomContext)
+  const [messages, setMessages] = useState([])
+  const history = useHistory()
+
+  const addMessage = message => {
+    setMessages([...messages, message])
+  }
+
+  useEffect(() => {
+    const getMessages = async () => {
+      try {
+        const { data } = await axios.get(`http://localhost:8080/api/rooms/${selectedRoom}/messages`)
+        setMessages(data)
+      } catch (error) {
+        history.push('/error')
+      }
+    }
+    getMessages()
+  }, [history, selectedRoom])
+
   return isRoomSelected(selectedRoom) ? (
     <div className={styles.chat}>
       <div className={styles.roomName}>
         <RoomName />
       </div>
       <div className={styles.messages}>
-        <Messages />
+        <Messages messages={messages} />
       </div>
       <div className={styles.addMessage}>
-        <AddMessage />
+        <AddMessage addMessage={addMessage} />
       </div>
     </div>
   ) : null

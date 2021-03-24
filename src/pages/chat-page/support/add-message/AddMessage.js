@@ -8,7 +8,7 @@ import UserContext from '../../../../app/support/UserContext'
 
 import styles from './AddMessage.module.scss'
 
-const AddMessage = () => {
+const AddMessage = ({ addMessage }) => {
   const [message, setMessage] = useState("")
   const getString = useString()
   const { selectedRoom } = useContext(SelectedRoomContext)
@@ -16,8 +16,10 @@ const AddMessage = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    axios.post(`http://localhost:8080/api/rooms/${selectedRoom}/messages`, { name: user, message })
+    const newMessage = { name: user, message }
+    axios.post(`http://localhost:8080/api/rooms/${selectedRoom}/messages`, newMessage)
     setMessage("")
+    addMessage(newMessage)
   }
 
   return (
