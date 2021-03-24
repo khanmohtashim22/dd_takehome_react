@@ -1,17 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React from 'react'
 
-import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
+// import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
 
 import styles from './Messages.module.scss'
 
 const Messages = () => {
-  const { selectedRoom } = useContext(SelectedRoomContext)
-  const [messages, setMessages] = useState([])
+  // const { selectedRoom } = useContext(SelectedRoomContext)
 
-  useEffect(() => {
-    console.log('comebac', messages)
-    setMessages([])
-  }, [selectedRoom, messages])
+
+
 
   return (
     <div className={styles.messages}>

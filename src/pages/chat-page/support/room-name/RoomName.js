@@ -1,30 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react'
-import axios from 'axios'
-import { useHistory } from 'react-router-dom'
+import React, { useContext } from 'react'
 
 import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
 import UserContext from '../../../../app/support/UserContext'
+import useGet from '../../../../components/use-get/UseGet'
 
 import styles from './RoomName.module.scss'
 
 const RoomName = () => {
   const { selectedRoom } = useContext(SelectedRoomContext)
   const { user } = useContext(UserContext)
-  const history = useHistory()
-  const [roomInfo, setRoomInfo] = useState({})
-  const { name, users } = roomInfo
-
-  useEffect(() => {
-    const getRoomInfo = async () => {
-      try {
-        const { data } = await axios.get(`http://localhost:8080/api/rooms/${selectedRoom}`)
-        setRoomInfo(data)
-      } catch (error) {
-        history.push('/error')
-      }
-    }
-    getRoomInfo()
-  }, [selectedRoom, history])
+  const roomInfo = useGet(`http://localhost:8080/api/rooms/${selectedRoom}`)
+  const { name, users } = roomInfo || {}
 
   return name ? (
     <div className={styles.roomName}>
