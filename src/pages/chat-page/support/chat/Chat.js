@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 
 import RoomName from '../room-name/RoomName'
 import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
-import { isRoomSelected } from '../utils/chat-utils'
 import AddMessage from '../add-message/AddMessage'
 import Messages from '../messages/Messages'
 import useGet from '../../../../components/use-get/UseGet'
@@ -17,7 +16,7 @@ const Chat = () => {
     setMessages([...messages, message])
   }
 
-  return isRoomSelected(selectedRoom) ? (
+  return (
     <div className={styles.chat}>
       <div className={styles.roomName}>
         <RoomName />
@@ -29,7 +28,7 @@ const Chat = () => {
         <AddMessage addMessage={addMessage} />
       </div>
     </div>
-  ) : null
+  )
 }
 
 export default Chat

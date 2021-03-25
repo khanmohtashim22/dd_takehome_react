@@ -16,7 +16,7 @@ const Timer = () => {
   }, [])
 
   return (
-    <div data-testid="time" className={getClasses({ styles, classes: ['timer', !time && 'hidden'] })}>
+    <div className={getClasses({ styles, classes: ['timer', !time && 'hidden'] })}>
       <Text id="online.for" el="span" />
       <span> {time} </span>
       <Text id="minutes" el="span" />

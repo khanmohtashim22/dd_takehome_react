@@ -6,7 +6,7 @@ const Text = ({ el = 'div', id, className }) => {
   const Component = el
   const getString = UseString()
   return (
-    <Component data-testid={id} className={className}>
+    <Component className={className}>
       {getString(id)}
     </Component>
   )

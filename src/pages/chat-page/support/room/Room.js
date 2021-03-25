@@ -14,7 +14,7 @@ const Room = ({ room }) => {
   }
   return (
     <li>
-      <button data-testid={name} onClick={handleClick} className={getClasses({ styles, classes: ['room', selected && 'selected'] })}>
+      <button onClick={handleClick} className={getClasses({ styles, classes: ['room', selected && 'selected'] })}>
         {name}
       </button>
     </li>

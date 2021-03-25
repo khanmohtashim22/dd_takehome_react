@@ -6,7 +6,6 @@ import styles from './Input.module.scss'
 
 const Input = ({ id, placeholder, name, value, onChange, className }) => (
   <input 
-    data-testid={id}
     id={id} 
     name={name} 
     value={value} 
