@@ -10,8 +10,11 @@ const Message = ({ message }) => {
   const { user } = useContext(UserContext)
   const ownMessage = user === name
   return (
-    <li className={getClasses({ styles, classes: [ownMessage ? 'ownMessage' : 'message'] })}>
-      <p>{messageContent}</p>
+    <li className={styles.container}>
+      {!ownMessage && <h6>{name}</h6>}
+      <div className={getClasses({ styles, classes: [ownMessage ? 'ownMessage' : 'message'] })}>
+        <p>{messageContent}</p>
+      </div>
     </li>
   )
 }
