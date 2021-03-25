@@ -15,4 +15,8 @@
   border-radius: 5px;
   font-size: medium;
   margin-left: 16px;
+
+  &.disable {
+    color: $gray1;
+  }
 }

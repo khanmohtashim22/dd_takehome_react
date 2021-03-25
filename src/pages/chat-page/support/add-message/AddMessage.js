@@ -5,6 +5,7 @@ import Input from '../../../../components/input/Input'
 import useString from '../../../../components/use-string/UseStrings'
 import SelectedRoomContext from '../selected-room-context/SelectedRoomContext'
 import UserContext from '../../../../app/support/UserContext'
+import { getClasses } from '../../../../utils/style-utils/style-utils'
 
 import styles from './AddMessage.module.scss'
 
@@ -13,6 +14,7 @@ const AddMessage = ({ addMessage }) => {
   const getString = useString()
   const { selectedRoom } = useContext(SelectedRoomContext)
   const { user } = useContext(UserContext)
+  const disabled = !message
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -31,7 +33,12 @@ const AddMessage = ({ addMessage }) => {
         onChange={e => setMessage(e.target.value)}
         placeholder={getString('type.message')}
       />
-      <input type="submit" value={getString('send')} className={styles.send} />
+      <input 
+        disabled={disabled}
+        type="submit" 
+        value={getString('send')} 
+        className={getClasses({ styles, classes: ['send', disabled && 'disable'] })}
+      />
     </form>
   )
 }
