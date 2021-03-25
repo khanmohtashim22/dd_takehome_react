@@ -25,7 +25,7 @@ const Rooms = () => {
     <div className={styles.container}>
       
       <div className={styles.userContainer}>
-        <h1 className={styles.user}>{user}</h1>
+        <h1 data-testid="user" className={styles.user}>{user}</h1>
         <Timer />
       </div>
       <ul className={styles.rooms}>

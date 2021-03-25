@@ -4,7 +4,9 @@ const ScrollToBottom = ({ children, onChangeOf }) => {
   const scrollElement = useRef()
 
   useEffect(() => {
-    scrollElement.current.scrollIntoView()
+    if (scrollElement && scrollElement.current) {
+      scrollElement.current.scrollIntoView()
+    }
   }, [onChangeOf])
   
   return (

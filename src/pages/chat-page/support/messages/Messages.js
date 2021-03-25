@@ -5,14 +5,14 @@ import ScrollToBottom from '../../../../components/scroll-to-bottom/ScrollToBott
 
 import styles from './Messages.module.scss'
 
-const Messages = ({ messages }) => (
+const Messages = ({ messages }) => messages && messages.length > 0 ? (
   <ScrollToBottom onChangeOf={messages}>
     <ul className={styles.messages}>
       {
-        messages && messages.length > 0 && messages.map((message, index) => <Message key={index} message={message} />)
+        messages.map((message, index) => <Message key={index} message={message} />)
       }
     </ul>
   </ScrollToBottom>
-)
+) : null
 
 export default Messages

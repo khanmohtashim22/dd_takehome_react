@@ -33,7 +33,7 @@ const LoginPage = () => {
   }
   
   return (
-    <form onSubmit={handleSubmit} className={styles.loginContainer}>
+    <form data-testid="login" onSubmit={handleSubmit} className={styles.loginContainer}>
       <div className={styles.login}>
         {error && <Text id="username.error" el="h1" className={styles.error} />}
         <Input 
