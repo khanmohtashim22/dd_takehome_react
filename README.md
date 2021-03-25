@@ -4,6 +4,16 @@ To run the application just run `npm install` followed by `npm start`.
 Hope you enjoy my take on this application. Would love to discuss
 this further with you.
 
+Some functionality I added.
+User cant login if login is invalid.
+User cant add messages if message is invalid.
+
+I tried to have two opened tabs talk to one onther, but I couldnt figure out
+a way without making changes to server.js. Also instructions said not to touch 
+the server.js file.
+
+Would love to discuss this further with you.
+
 # DoorDash Frontend Interview Project
 * TLDR: *Build a chat app with real APIs*
 * Time: *3hr - 6hrs*
