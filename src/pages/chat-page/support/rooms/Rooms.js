@@ -12,7 +12,7 @@ import styles from './Rooms.module.scss'
 const Rooms = () => {
   const { user } = useContext(UserContext)
   const { setSelectedRoom, selectedRoom } = useContext(SelectedRoomContext)
-  const rooms = useGet('http://localhost:8080/api/rooms')
+  const [rooms] = useGet('http://localhost:8080/api/rooms')
   const hasRooms = rooms && rooms.length > 0
 
   useEffect(() => {

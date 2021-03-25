@@ -18,7 +18,7 @@ const UseGet = (url) => {
     get()
   }, [url, history])
 
-  return response
+  return [response, setResponse]
 }
 
 export default UseGet

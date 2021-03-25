@@ -9,7 +9,7 @@ import styles from './RoomName.module.scss'
 const RoomName = () => {
   const { selectedRoom } = useContext(SelectedRoomContext)
   const { user } = useContext(UserContext)
-  const roomInfo = useGet(`http://localhost:8080/api/rooms/${selectedRoom}`)
+  const [roomInfo] = useGet(`http://localhost:8080/api/rooms/${selectedRoom}`)
   const { name, users } = roomInfo || {}
 
   return name ? (
