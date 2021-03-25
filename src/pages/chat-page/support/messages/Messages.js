@@ -5,11 +5,11 @@ import Message from '../message/Message'
 import styles from './Messages.module.scss'
 
 const Messages = ({ messages }) => (
-  <div className={styles.messages}>
+  <ul className={styles.messages}>
     {
       messages && messages.length > 0 && messages.map((message, index) => <Message key={index} message={message} />)
     }
-  </div>
+  </ul>
 )
 
 export default Messages

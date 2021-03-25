@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import UserContext from '../../../../app/support/UserContext'
+import { getClasses } from '../../../../utils/style-utils/style-utils'
+
+import styles from './Message.module.scss'
 
 const Message = ({ message }) => {
   const { name, message: messageContent } = message
+  const { user } = useContext(UserContext)
+  const ownMessage = user === name
   return (
-    <div>
-      <div>
-        {name}
-      </div>
-      <div>
-        {
-          messageContent
-        }
-      </div>
-    </div>
+    <li className={getClasses({ styles, classes: [ownMessage ? 'ownMessage' : 'message'] })}>
+      <p>{messageContent}</p>
+    </li>
   )
 }
 

@@ -1,0 +1,32 @@
+@import "../../../../css/constants.scss";
+
+.message,
+.ownMessage {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  p {
+    display: inline-block;
+    padding: 16px;
+    border-radius: 16px;
+    max-width: 50%;
+  }
+}
+
+.ownMessage {
+  justify-content: flex-end;
+  p {    
+    background-color: $pink;
+    color: $white;
+  }
+}
+
+.message {
+  justify-content: flex-start;
+  p {    
+    background-color: $white;
+    color: $gray3;
+  }
+}
+
