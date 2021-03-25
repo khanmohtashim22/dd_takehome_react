@@ -1,3 +1,9 @@
+# Moes Intructions
+
+To run the application just run `npm install` followed by `npm start`.
+Hope you enjoy my take on this application. Would love to discuss
+this further with you.
+
 # DoorDash Frontend Interview Project
 * TLDR: *Build a chat app with real APIs*
 * Time: *3hr - 6hrs*
